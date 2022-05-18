@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Craigslist like - Créer un compte</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<?php require 'views/header.phtml' ?>
+		<main>
+			<?php if(isset($errorMessage)): ?>
+				<div class="alert error"><?= $errorMessage ?></div>
+			<?php endif; ?>
+			<form action="sign-up.php" method="post">
+				<input type="email" name="email" placeholder="Adresse électronique" required>
+				<input type="password" name="password" placeholder="Mot de passe" required>
+				<button type="submit">Créer le compte</button>
+			</form>
+		</main>
+	</body>
+</html>

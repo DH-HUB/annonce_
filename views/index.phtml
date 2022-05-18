@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Annonces livres - Accueil</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<?php require 'views/header.phtml' ?>
+	<main>
+		<?php if (count($ads) > 0) : ?>
+			<div class="ads">
+				<?php foreach ($ads as $ad) : ?>
+					<a href="ad.php?id=<?= intval($ad['id']) ?>">
+						<?php if (!empty($ad['mainPictureFilePath'])) : ?>
+							<picture>
+								<img src="<?= $ad['mainPictureFilePath'] ?>" alt="<?= htmlspecialchars($ad['title']) ?>">
+							</picture>
+						<?php endif; ?>
+						<h2><?= htmlspecialchars($ad['title']) ?></h2>
+						<span class="price"><?= intval($ad['price']) ?> €</span>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+	</main>
+</body>
+
+</html>

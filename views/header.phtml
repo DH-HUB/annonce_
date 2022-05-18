@@ -1,0 +1,12 @@
+<header>
+	<a href="./">Accueil</a>
+	<?php if(!array_key_exists('userId', $_SESSION)): ?>
+		<a href="log-in.php">Se connecter</a>
+		<a href="sign-up.php">Créer un compte</a>
+	<?php else: ?>
+		<a href="messages.php">Mes messages</a>
+		<a href="dashboard.php">Mes annonces</a>
+		<a href="post-ad.php">Publier une annonce</a>
+		<a href="log-out.php">Se déconnecter</a>
+	<?php endif ?>
+</header>

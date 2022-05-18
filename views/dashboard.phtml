@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Annonces Livres Programmations - Mes annonces</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<?php require 'views/header.phtml' ?>
+	<main>
+		<?php if (count($ads) > 0) : ?>
+			<div class="ads">
+				<?php foreach ($ads as $ad) : ?>
+					<article>
+						<?php if (!empty($ad['mainPictureFilePath'])) : ?>
+							<picture>
+								<img src="<?= $ad['mainPictureFilePath'] ?>" alt="<?= htmlspecialchars($ad['title']) ?>">
+							</picture>
+						<?php endif; ?>
+						<h2><?= htmlspecialchars($ad['title']) ?></h2>
+						<span class="price"><?= intval($ad['price']) ?> €</span>
+						<a href="delete-ad.php?id=<?= intval($ad['id']) ?>">Supprimer</a>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		<?php else : ?>
+			<div class="alert warning">Aucune annonce publiée</div>
+		<?php endif; ?>
+	</main>
+</body>
+
+</html>

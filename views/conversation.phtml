@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Craigslist like - Conversation</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<?php require 'views/header.phtml' ?>
+		<main class="conversation">
+			<?php if(isset($errorMessage)): ?>
+				<div class="alert error"><?= $errorMessage ?></div>
+			<?php endif; ?>
+			<div class="messages">
+				<?php if(count($messages) > 0): ?>
+					<?php foreach($messages as $message): ?>
+						<div<?= $message['fromUser'] == $_SESSION['userId'] ? ' class="me"' : null ?>>
+							<p><?= nl2br(htmlspecialchars($message['content'])) ?></p>
+							<span><?= $message['writingDate'] ?></span>
+						</div>
+					<?php endforeach ?>
+				<?php endif ?>
+			</div>
+			<form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post">
+				<textarea name="message" placeholder="Message" rows="3" required></textarea>
+				<button type="submit">Envoyer</button>
+			</form>
+		</main>
+	</body>
+</html>

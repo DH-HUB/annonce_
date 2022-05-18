@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Craigslist like - <?= htmlspecialchars($ad['title']) ?></title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<?php require 'views/header.phtml' ?>
+		<main>
+			<h1><?= htmlspecialchars($ad['title']) ?></h1>
+			<p><?= nl2br(htmlspecialchars($ad['content'])) ?></p>
+			<span><?= intval($ad['price']) ?> €</span>
+			<?php if(count($ad['pictureFilePaths']) > 0): ?>
+				<?php foreach($ad['pictureFilePaths'] as $pictureFilePath): ?>
+					<img src="<?= $pictureFilePath ?>" alt="<?= htmlspecialchars($ad['title']) ?>">
+				<?php endforeach; ?>
+			<?php endif; ?>
+			<?php if($_SESSION['userId'] != $ad['userId']): ?>
+				<a href="conversation.php?adId=<?= intval($ad['id']) ?>&contactId=<?= intval($ad['userId']) ?>">Contacter le vendeur</a>
+			<?php endif ?>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Craigslist like - Publier une annonce</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<?php require 'views/header.phtml' ?>
+		<main>
+			<?php if(isset($errorMessage)): ?>
+				<div class="alert error"><?= $errorMessage ?></div>
+			<?php endif; ?>
+			<form action="post-ad.php" method="post" enctype="multipart/form-data">
+				<input type="text" name="title" placeholder="Titre" required>
+				<textarea name="content" placeholder="Contenu" rows="10" required></textarea>
+				<input type="number" name="price" placeholder="Prix (€)" min="0" max="65535" required>
+				<input type="file" name="pictures[]" multiple accept="<?= implode(',', MIME_TYPES_ACCEPTED) ?>">
+				<input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_FILE_SIZE ?>"> 
+				<button type="submit">Publier l'annonce</button>
+			</form>
+		</main>
+	</body>
+</html>

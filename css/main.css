@@ -1,0 +1,230 @@
+body
+{
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: sans-serif;
+}
+
+body>header
+{
+	background-color: #4285f4;
+	color: #fff;
+	display: flex;
+	flex-shrink: 0;
+}
+
+body>header>a
+{
+	color: inherit;
+	text-decoration: none;
+	padding: 1em;
+}
+
+body>header>a:first-child
+{
+	margin-right: auto;
+}
+
+body>header>a:hover
+{
+	background-color: #1a73e8;
+}
+
+body>main
+{
+	background-color: #fafafa;
+	color: #202124;
+	flex-grow: 1;
+	overflow-y: auto;
+	padding: 1em;
+}
+
+body>main>form
+{
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	margin: auto;
+}
+
+body>main>form>input
+{
+	background-color: #fff;
+	color: inherit;
+	border: none;
+}
+
+body>main>form>input,
+body>main>form>textarea,
+body>main>form>button[type="submit"]
+{
+	font-family: inherit;
+	font-size: inherit;
+	padding: 1em;
+	border: none;
+	margin-top: 1em;
+}
+
+body>main>form>input:first-child
+{
+	margin-top: 0;
+}
+
+body>main>form>button[type="submit"]
+{
+	background-color: #4285f4;
+	color: #fff;
+	cursor: pointer;
+}
+
+body>main>form>button[type="submit"]:hover
+{
+	background-color: #1a73e8;
+}
+
+img
+{
+	display: block;
+	max-width: 100%;
+}
+
+.alert
+{
+	padding: 1em;
+	color: #fff;
+	margin: 0 auto 1em;
+	text-align: center;
+}
+
+.alert.error
+{
+	background-color: #f44336;
+}
+
+.alert.success
+{
+	background-color: #4caf50;
+}
+
+.alert.info
+{
+	background-color: #2196f3;
+}
+
+.alert.warning
+{
+	background-color: #ff9800;
+}
+
+.ads
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin: -.5em;
+}
+
+.ads>a,
+.ads>article
+{
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	color: inherit;
+	text-decoration: none;
+	align-items: center;
+	margin: .5em;
+	text-align: center;
+	width: calc(100% / 3 - 1em);
+	justify-content: center;
+}
+
+.ads>a>h2,
+.ads>a>.price,
+.ads>article>h2,
+.ads>article>.price,
+.ads>article>a
+{
+	margin: .5em;
+}
+
+.ads>a>.price,
+.ads>article>.price,
+.ads>article>a
+{
+	margin-top: 0;
+}
+
+.ads>article>a
+{
+	background-color: #4285f4;
+	color: #fff;
+	padding: .5em;
+	text-decoration: none;
+}
+
+.ads>article>a:hover
+{
+	background-color: #1a73e8;
+}
+
+main.conversation
+{
+	display: flex;
+	flex-direction: column;
+}
+
+main.conversation>.messages
+{
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+main.conversation>.messages>div
+{
+	display: flex;
+	flex-direction: column;
+}
+
+main.conversation>.messages>div+div
+{
+	margin-top: 1em;
+}
+
+main.conversation>.messages>div>p
+{
+	background-color: #3c4043;
+	color: #fff;
+	padding: 1em;
+	margin: 0;
+	align-self: flex-start;
+}
+
+main.conversation>.messages>div.me>p
+{
+	align-self: flex-end;
+}
+
+main.conversation>.messages>div>span
+{
+	font-size: .75em;
+	font-style: italic;
+	margin-top: .5em;
+}
+
+main.conversation>.messages>div.me>span
+{
+	text-align: right;
+}
+
+main.conversation>form
+{
+	flex-direction: row;
+	width: 100%;
+}
+
+main.conversation>form>textarea
+{
+	flex-grow: 1;
+}

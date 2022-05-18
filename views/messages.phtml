@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Craigslist like - Mes messages</title>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<?php require 'views/header.phtml' ?>
+		<main>
+			<?php if(count($conversations) > 0): ?>
+				<ul>
+					<?php foreach($conversations as $conversation): ?>
+						<li>
+							<a href="conversation.php?adId=<?= intval($conversation['adId']) ?>&contactId=<?= intval($conversation['contactId']) ?>">
+								<?= intval($conversation['messageCount']) ?> message<?= $conversation['messageCount'] > 1 ? 's' : null ?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php else: ?>
+				<div class="alert warning">Aucun message</div>
+			<?php endif; ?>
+		</main>
+	</body>
+</html>
